@@ -1,0 +1,226 @@
+.tile{
+	width: 125;
+	height: 125;
+	cursor: pointer;
+	border: transparent;
+	border-radius: 6px;
+}
+
+th, td {
+	padding: 3px;
+	margin: 0px;
+	border-style: none;
+	border-spacing: 0px;
+}
+
+html{
+	font-family: Arial;
+}
+
+#box{
+	top: 50%;
+	margin: auto;
+	display: table;
+}
+
+#levelDiv{
+	padding-left: 10px;
+}
+
+table{
+	display: none;
+	border: #222 solid 30px;
+	border-radius: 10px;
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -70%);
+	background-color: #fff;
+	transition: all 0.5s cubic-bezier(0, 0, 0, 1) 0s;
+}
+
+#header{
+	font-weight:bold;
+	font-size: 1.5em;
+	display: block;
+}
+
+button{
+	text-decoration: underline;
+	background: #fff;
+	border: 0;
+	cursor:pointer;
+}
+
+#back{
+	float: right;
+}
+
+p{
+	-webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+
+	padding: 1em;
+}
+
+#setup{
+	background:#fff;
+	padding:5px;
+	border: #222 solid 20px;
+	border-radius: 10px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align:center;
+	transition: all 0.5s cubic-bezier(0, 0, 0, 1) 0s;
+}
+
+
+ul{
+	-webkit-margin-before: 0px;
+	list-style:none;
+	-webkit-padding-start: 4px;
+	text-align:center;
+}
+
+button:hover{
+	color:#666;
+}
+
+#diffDiv{
+	bottom:100%;
+}
+
+.right {
+    -webkit-animation-name: right-animation;
+    -webkit-animation-duration: 0.5s;
+
+    animation-name: right-animation;
+    animation-duration: 0.5s;
+	animation-timing-function: ease;
+}
+
+@-webkit-keyframes right-animation {
+    from { background: #4dea53; }
+    to   { background: default; }
+}
+
+@keyframes right-animation {
+    from { background: #4dea53; }
+    to   { background: default; }
+}
+
+.wrong {
+    -webkit-animation-name: wrong-animation;
+    -webkit-animation-duration: 0.5s;
+
+    animation-name: wrong-animation;
+    animation-duration: 0.5s;
+	animation-timing-function: ease;
+}
+
+@-webkit-keyframes wrong-animation {
+    from { background: #f44336; }
+    to   { background: default; }
+}
+
+@keyframes wrong-animation {
+    from { background: #f44336; }
+    to   { background: default; }
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+  .tile {
+	width: 75;
+	height: 75;
+	border-radius: 3px;
+  }
+
+  th, td {
+	padding: 2px;
+  }
+
+  table{
+	border: #222 solid 20px;
+  }
+
+}
+
+@media (max-width: 340px) and (orientation: portrait){
+  .tile {
+	width: 40;
+	height: 40;
+	border-radius: 2px;
+  }
+
+   th, td {
+	padding: 0px;
+  }
+
+  table{
+	border: #222 solid 10px;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .tile {
+	width: 60;
+	height: 60;
+	border-radius: 3px;
+  }
+
+   th, td {
+	padding: 2px;
+  }
+
+   table{
+	border: #222 solid 20px;
+  }
+}
+
+@media (max-height: 550px){
+	img{
+		float: right;
+	}
+
+	#setup{
+		width:70%;
+	}
+}
+
+@media (max-height: 340px) and (orientation: landscape){
+  .tile {
+	width: 50;
+	height: 50;
+	border-radius: 4px;
+  }
+
+  #setup{
+	  width:70%;
+  }
+
+  th, td {
+	padding: 0px;
+  }
+
+   table{
+	border: #222 solid 20px;
+  }
+}
+
+
+@media (min-width: 700px){
+	img{
+		float:right;
+	}
+}
+
+@media (orientation: landscape){
+
+	img{
+		float:right;
+	}
+}
