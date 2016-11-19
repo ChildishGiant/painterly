@@ -47,7 +47,7 @@ table{
 
 button{
 	text-decoration: underline;
-	background: #fff;
+	background: transparent;
 	border: 0;
 	cursor:pointer;
 }
