@@ -1,6 +1,10 @@
 var start = 80;
 var goodDiff = start/20;
 
+var correctSound = new Audio("correct.wav");
+var wrongSound = new Audio("wrong.wav");
+
+
 //easiest: 120 6
 //easy   : 100 5
 //normal : 80  4
@@ -77,6 +81,8 @@ function updateText(diff){
 //For when the answer is correct
 function right(){
 	
+	correctSound.play();
+	
     $('body').addClass('right');
     setTimeout(function() {
           $('body').removeClass('right');
@@ -86,6 +92,8 @@ function right(){
 
 //For when the answer is incorrect
 function wrong(){
+	
+	wrongSound.play();
 	
     $('body').addClass('wrong');
     setTimeout(function() {
@@ -223,3 +231,14 @@ return $("<td/>").html("<div class=\"tile\" onclick=\"tag(this);\"></div>");
 return $("<table/>")
 .append(numRows.times(row));
 }
+
+function cheat(){
+	$('.tile').each(function(i) {
+
+		if ("rgb("+SR+", "+SG+", "+SB+")" != $(this).css("background-color") ){
+			$(this).click();
+		};
+		
+		
+	});
+};

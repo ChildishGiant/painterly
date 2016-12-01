@@ -2,7 +2,6 @@
 	width: 125;
 	height: 125;
 	cursor: pointer;
-	border: transparent;
 	border-radius: 6px;
 }
 
@@ -67,7 +66,7 @@ p{
 
 #setup{
 	background:#fff;
-	padding:5px;
+	padding:5px 5%;
 	border: #222 solid 20px;
 	border-radius: 10px;
 	position: absolute;
@@ -100,7 +99,7 @@ button:hover{
 
     animation-name: right-animation;
     animation-duration: 0.5s;
-	animation-timing-function: ease;
+	animation-timing-function: cubic-bezier(0.7, 0, 1, 1);
 }
 
 @-webkit-keyframes right-animation {
@@ -119,7 +118,7 @@ button:hover{
 
     animation-name: wrong-animation;
     animation-duration: 0.5s;
-	animation-timing-function: ease;
+	animation-timing-function: cubic-bezier(0.7, 0, 1, 1)
 }
 
 @-webkit-keyframes wrong-animation {
@@ -148,27 +147,10 @@ button:hover{
   }
 
 }
-
-@media (max-width: 340px) and (orientation: portrait){
-  .tile {
-	width: 40;
-	height: 40;
-	border-radius: 2px;
-  }
-
-   th, td {
-	padding: 0px;
-  }
-
-  table{
-	border: #222 solid 10px;
-  }
-}
-
 @media (max-height: 600px) and (orientation: landscape) {
   .tile {
-	width: 60;
-	height: 60;
+	width: 75;
+	height: 75;
 	border-radius: 3px;
   }
 
@@ -181,25 +163,41 @@ button:hover{
   }
 }
 
-@media (max-height: 550px){
-	img{
-		float: right;
-	}
+@media (max-width: 350px) and (orientation: portrait){
+  .tile {
+	width: 55;
+	height: 55;
+	border-radius: 2px;
+  }
 
-	#setup{
-		width:70%;
-	}
+  #setup{
+	  padding:0;
+	  width:100%;
+	  height:100%;
+	  border:none;
+  }
+
+   th, td {
+	padding: 0px;
+  }
+
+  table{
+	border: #222 solid 10px;
+  }
 }
 
-@media (max-height: 340px) and (orientation: landscape){
+@media (max-height: 350px) and (orientation: landscape){
   .tile {
-	width: 50;
-	height: 50;
+	width: 55;
+	height: 55;
 	border-radius: 4px;
   }
 
   #setup{
-	  width:70%;
+	  padding:0;
+	  width:100%;
+	  height:100%;
+	  border:none;
   }
 
   th, td {
@@ -211,15 +209,7 @@ button:hover{
   }
 }
 
-
-@media (min-width: 716px){
-	img{
-		float:right;
-	}
-}
-
-@media (orientation: landscape){
-
+@media (min-width: 870px){
 	img{
 		float:right;
 	}
