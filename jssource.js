@@ -1,9 +1,6 @@
 var start = 80;
 var goodDiff = start/20;
 
-var correctSound = new Audio("correct.wav");
-var wrongSound = new Audio("wrong.wav");
-
 
 //easiest: 120 6
 //easy   : 100 5
@@ -35,12 +32,12 @@ function setDiff(numero){
 	start = numero;
 	difficulty = numero;
 	goodDiff = start/20
-	
+
 	$("#diffLevel").html(ref[numero])
 	$("#setup").hide();
 	$("table").show();
 	resetGame();
-	
+
 }
 
 $(function() {
@@ -61,7 +58,7 @@ function resetGame(){
 
 	//125 is the easiest
 	var difficulty = start;
-	
+
 	setAll();
 	setOne(difficulty);
 	updateText(difficulty);
@@ -69,20 +66,19 @@ function resetGame(){
 
 function updateText(diff){
 	$("#level").html((start-diff)/goodDiff+1);
-	
+
 	if (diff <= 0){
 		win();
 		difficulty = start; // Idk why I need this but it works now
 	}
-	
+
 };
 
 
 //For when the answer is correct
 function right(){
 	
-	correctSound.play();
-	
+
     $('body').addClass('right');
     setTimeout(function() {
           $('body').removeClass('right');
@@ -92,9 +88,8 @@ function right(){
 
 //For when the answer is incorrect
 function wrong(){
-	
-	wrongSound.play();
-	
+
+
     $('body').addClass('wrong');
     setTimeout(function() {
           $('body').removeClass('wrong');
@@ -117,7 +112,7 @@ function tag(element){
 		difficulty = difficulty - goodDiff
 		right();
 	};
-	
+
 	newTask();
 };
 
@@ -134,43 +129,43 @@ function win(){
 //make one tile a slightly different colour
 //max change is 125
 function setOne(change){
-	
+
 	//Choose a random tile by number  THE CULPRIT TO THE ELUSIVE NO TILE CHANGED BUG
 	var targetTile = Math.round(Math.random()*((xSize*ySize)-1));
-	
+
 	if (change > start){
 		change = start;
 	}else if(change < 1){
 		change = 1;
 	};
-	
+
 	$('.tile').each(function(i) {
-		
+
 		//if the tile is the chosen one
 		if (targetTile == i){
-			
+
 			//r, g or b?
 			var RGOB = Math.random();
-			
+
 			if (RGOB < 0.33){
 				//change R
 				R = plusOrMinus(R,change);
-				
+
 			}else if (RGOB < 0.66){
 				//change G
 				G = plusOrMinus(G,change);
-				
+
 			}else{
 				//change B
 				B = plusOrMinus(B,change);
-				
+
 			};
-			
+
 			$(this).css("background-color", "RGB("+R+","+G+","+B+")");
 		};
-		
-		
-		
+
+
+
 	});
 
 };
@@ -178,21 +173,21 @@ function setOne(change){
 //will change the vars randomly but keeping it in 0 - 255
 function plusOrMinus(var1,var2){
 	var result;
-	  
+
 	if (Math.random() > .5){
 		//Subtract the second from the firstChild
 		result = var1-var2;
-		
+
 		if (result < 0){
 			result = var1+var2;
-		};	
+		};
 	}else{
 		//Add the two vars
 		result = var1+var2;
-		
+
 		if (result > 255){
 			result = var1-var2;
-		};	
+		};
 	};
 
 	return result;
@@ -204,14 +199,14 @@ function setAll(){
 	R = Math.round(Math.random()*255);
 	G = Math.round(Math.random()*255);
 	B = Math.round(Math.random()*255);
-	
+
 	SR = R;
 	SG = G;
 	SB = B;
-	
+
 	$('.tile').each(function(i) {
 		$(this).css("background-color", "RGB("+R+","+G+","+B+")");
-	});	
+	});
 };
 
 Number.prototype.times = function(fn) {
@@ -238,7 +233,7 @@ function cheat(){
 		if ("rgb("+SR+", "+SG+", "+SB+")" != $(this).css("background-color") ){
 			$(this).click();
 		};
-		
-		
+
+
 	});
 };
