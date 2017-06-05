@@ -3,13 +3,22 @@
 
 		<title>Painterly</title>
 
-		<link rel="apple-touch-icon-precomposed" href="small.ico" >
-		<link rel="icon" href="small.ico">
+		<!-- Icons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="apple-mobile-web-app-title" content="Painterly">
+		<meta name="application-name" content="Painterly">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="theme-color" content="#ffffff">
 
 		<meta name=viewport content="width=device-width, initial-scale=1">
-		<link async rel="stylesheet" type="text/css" href="style.css">
-		<script src="jquery-3.1.1.min.js"></script>
-		<script async type="text/javascript" src="jssource.js"></script>
+		<link async rel="stylesheet" type="text/css" href="compiled/style.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script async type="text/javascript" src="compiled/jssource.min.js"></script>
 
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -35,7 +44,7 @@
 
 			<p>Click the colour that is different to all the others. Just do that for 20 levels. Simple.</p>
 
-			<img src="howto.gif" width="200"/>
+			<video src="howto.mp4" width="200" autoplay loop></video>
 
 			<span id="header">Select your difficulty:</span><br/>
 			<ul>
@@ -49,5 +58,12 @@
 		</div>
 		<div id="box"></div>
 		<!-- <div class=\"tile\" id="RC" onclick=\"toggle(this);\"></div> -->
+
+		<div id="winDiv">
+     <div >
+			 <p id="winMessage"></p>
+			 <button onclick="refresh();">Continue</button>
+     </div>
+</div>
 	</body>
 </html>

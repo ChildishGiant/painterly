@@ -21,6 +21,11 @@ var SR;
 var SG;
 var SB;
 
+var startTime; //Time you start the game
+var endTime;  //Time you win
+
+var startingDifficulty;
+var tagCount; //How many times the user has clicked a tile
 
 //Higher is easeier
 var difficulty = start;
@@ -29,14 +34,18 @@ var difficulty = start;
 //spanish is cool, right?
 function setDiff(numero){
 	ref = {120:"Easiest",100:"Easy",80:"Normal",60:"Hard",40:"Harder",20:"Unfair"}
+	startingDifficulty = ref[numero];
 	start = numero;
 	difficulty = numero;
 	goodDiff = start/20
 
-	$("#diffLevel").html(ref[numero])
+	$("#diffLevel").html(startingDifficulty)
 	$("#setup").hide();
 	$("table").show();
 	resetGame();
+
+	//Start the timer
+	startTime = (new Date).getTime();
 
 }
 
@@ -53,8 +62,10 @@ function newTask(){
 }
 
 function resetGame(){
-	var xSize = 4;
-	var ySize = 4;
+	xSize = 4;
+	ySize = 4;
+
+	tagCount = 0;
 
 	//125 is the easiest
 	var difficulty = start;
@@ -65,7 +76,12 @@ function resetGame(){
 }
 
 function updateText(diff){
-	$("#level").html((start-diff)/goodDiff+1);
+
+	if ((start-diff)/goodDiff+1 > 20){
+		$("#level").html("Winner winner, chicken dinner!");
+	} else {
+		$("#level").html((start-diff)/goodDiff+1);
+	}
 
 	if (diff <= 0){
 		win();
@@ -77,7 +93,6 @@ function updateText(diff){
 
 //For when the answer is correct
 function right(){
-	
 
     $('body').addClass('right');
     setTimeout(function() {
@@ -89,7 +104,6 @@ function right(){
 //For when the answer is incorrect
 function wrong(){
 
-
     $('body').addClass('wrong');
     setTimeout(function() {
           $('body').removeClass('wrong');
@@ -98,6 +112,9 @@ function wrong(){
 };
 
 function tag(element){
+
+	tagCount += 1;
+
 	if ($(element).css("background-color") == "rgb("+SR+", "+SG+", "+SB+")"){
 		//The tile is the same colour as the base: failure
 		if (difficulty < start-goodDiff){
@@ -117,20 +134,34 @@ function tag(element){
 };
 
 function refresh(){
-	$("#setup").show();
 	$("table").hide();
+	$('#setup').show();
+	$("#winDiv").css('visibility', 'hidden');
+	$("#level").text("1");
+	$("#diffLevel").text("Normal");
 };
 
 function win(){
-	alert("You won!");
-	refresh();
+	var endTime = (new Date).getTime();
+
+	var date = new Date(endTime-startTime);
+	var h = date.getHours();
+	var m = date.getMinutes();
+	var s = ("0" + date.getSeconds()).slice(-2);
+	var ms = date.getMilliseconds();
+	var timeMessage = ((h * 60) + m) + ":" + s + "." + ms
+	$("#winMessage").html("You have beaten painterly on " + startingDifficulty + " difficulty!<br/>It took you " + timeMessage + " and " + tagCount + " clicks!");
+
+	$("#winDiv").css('visibility', 'visible');
+	$("table").hide();
+
 };
 
 //make one tile a slightly different colour
 //max change is 125
 function setOne(change){
 
-	//Choose a random tile by number  THE CULPRIT TO THE ELUSIVE NO TILE CHANGED BUG
+	//Choose a random tile by number  0-15 THE CULPRIT TO THE ELUSIVE NO TILE CHANGED BUG
 	var targetTile = Math.round(Math.random()*((xSize*ySize)-1));
 
 	if (change > start){
