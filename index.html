@@ -4,15 +4,15 @@
 		<title>Painterly</title>
 
 		<!-- Icons -->
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="manifest" href="/manifest.json">
-		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+		<link rel="manifest" href="manifest.json">
+		<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
 		<meta name="apple-mobile-web-app-title" content="Painterly">
 		<meta name="application-name" content="Painterly">
 		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+		<meta name="msapplication-TileImage" content="mstile-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 
 		<meta name=viewport content="width=device-width, initial-scale=1">
@@ -32,19 +32,19 @@
 
 	</head>
 	<body>
-		<button id="back" onclick="refresh();">Back to the menu</button>
 		<div id="levelDiv">
 			<span id="header">Level:</span>
 			<span id="level">1</span><br/>
 			<span id="header">Difficulty selected:</span>
 			<span id="diffLevel">Normal</span><br/>
+			<button id="back" onclick="refresh();">Back to the menu</button>
 		</div>
 
 		<div id="setup">
 
 			<p>Click the colour that is different to all the others. Just do that for 20 levels. Simple.</p>
 
-			<video src="howto.mp4" width="200" autoplay loop></video>
+			<video src="howto.mp4" width="200" autoplay loop onload="$('#setup').css('transform', 'rotateZ(360deg)');"></video>
 
 			<span id="header">Select your difficulty:</span><br/>
 			<ul>

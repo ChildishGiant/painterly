@@ -247,15 +247,14 @@ Number.prototype.times = function(fn) {
 }
 
 function makeGrid(numRows, numCols) {
+	var row = function(r) {
+		return $("<tr/>").append(numCols.times(function(c) {
+			return $("<td/>").html("<div class=\"tile\" onclick=\"tag(this);\"></div>");
+		}));
+	};
 
-var row = function(r) {
-return $("<tr/>").append(numCols.times(function(c) {
-return $("<td/>").html("<div class=\"tile\" onclick=\"tag(this);\"></div>");
-}));
-};
-
-return $("<table/>")
-.append(numRows.times(row));
+	return $("<table/>")
+	.append(numRows.times(row));
 }
 
 function cheat(){
@@ -264,7 +263,5 @@ function cheat(){
 		if ("rgb("+SR+", "+SG+", "+SB+")" != $(this).css("background-color") ){
 			$(this).click();
 		};
-
-
 	});
 };

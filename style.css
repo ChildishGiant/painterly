@@ -16,24 +16,24 @@ html{
 	font-family: Arial;
 }
 
-#box{
-	top: 50%;
-	margin: auto;
-	display: table;
+body{
+	display: flex;
+  align-items: center;
+  flex-direction: column;
+	justify-content: center;
 }
 
 #levelDiv{
-	padding-left: 10px;
+	position: fixed;
+	top: 10px;
+	left: 10px;
 }
 
 table{
 	display: none;
 	border: #222 solid 30px;
 	border-radius: 10px;
-	position: absolute;
-	top: 70%;
-	left: 50%;
-	transform: translate(-50%, -70%);
+
 	background-color: #fff;
 	transition: all 0.5s cubic-bezier(0, 0, 0, 1) 0s;
 }
@@ -52,7 +52,7 @@ button{
 }
 
 #back{
-	float: right;
+	padding-left: 0px;
 }
 
 p{
@@ -69,12 +69,11 @@ p{
 	padding:5px 5%;
 	border: #222 solid 20px;
 	border-radius: 10px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+
 	text-align:center;
 	transition: all 0.5s cubic-bezier(0, 0, 0, 1) 0s;
+
+	top: 50%;
 }
 
 
@@ -87,10 +86,6 @@ ul{
 
 button:hover{
 	color:#666;
-}
-
-#diffDiv{
-	bottom:100%;
 }
 
 .right {
@@ -147,6 +142,7 @@ button:hover{
   }
 
 }
+
 @media (max-height: 600px) and (orientation: landscape) {
   .tile {
 	width: 75;
@@ -229,7 +225,6 @@ button:hover{
 
 #winDiv div {
 	font-size: 2em;
-	position: absolute;
 	max-width: calc(100% - 90px);
 	background-color: #fff;
 	border:1px solid #000;
@@ -245,4 +240,8 @@ button:hover{
 
 #winDiv div p{
 	padding: 0.5em;
+}
+
+button:focus{ /* Now you can't tell that I abuse padding :D*/
+    outline: none;
 }
