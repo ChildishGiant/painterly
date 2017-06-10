@@ -95,8 +95,10 @@ function updateText(diff){
 function right(){
 
     $('body').addClass('right');
+		$('#levelDiv').addClass('right');
     setTimeout(function() {
           $('body').removeClass('right');
+					$('#levelDiv').removeClass('right');
     }, 500);
 
 };
@@ -105,8 +107,10 @@ function right(){
 function wrong(){
 
     $('body').addClass('wrong');
+		$('#levelDiv').addClass('wrong');
     setTimeout(function() {
           $('body').removeClass('wrong');
+					$('#levelDiv').removeClass('wrong');
     }, 500);
 
 };

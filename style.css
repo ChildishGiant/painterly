@@ -240,8 +240,8 @@ button:hover{
 }
 
 #winDiv div {
-	font-size: 2em;
-	max-width: calc(100% - 90px);
+	font-size: 5vh;
+	max-width: calc(100% - 20px);
 	background-color: #fff;
 	border:1px solid #000;
 	text-align:center;
