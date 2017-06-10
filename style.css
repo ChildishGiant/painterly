@@ -262,6 +262,6 @@ button:focus{ /* Now you can't tell that I abuse padding :D*/
     outline: none;
 }
 
-span{
+#levelDiv span{
 	display: flex !important;
 }
