@@ -25,10 +25,9 @@ body{
 
 #levelDiv{
 	position: fixed;
-	display: flex;
+	display: block;
 	justify-content: space-between;
 	flex-direction: row;
-	width: 60%;
 	top: 0px;
 	padding: 5px;
 	align-items: center;
@@ -193,7 +192,7 @@ button:hover{
   }
 
 	#levelDiv{
-		width: 90%
+		width: 90%;
 	}
 }
 
@@ -263,5 +262,5 @@ button:focus{ /* Now you can't tell that I abuse padding :D*/
 }
 
 #levelDiv span{
-	display: flex !important;
+	display: inline;
 }
